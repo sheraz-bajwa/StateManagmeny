@@ -11,6 +11,8 @@ class Provider extends StatefulWidget {
 
 class _ProviderState extends State<Provider> {
   int count = 0;
+  double value = 0;
+   double value1 = 0;
   final now = DateTime.now();
   @override
   void initState() {
@@ -31,11 +33,37 @@ class _ProviderState extends State<Provider> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(now.toString()),
-            Text(
-              count.toString(),
-              style: Theme.of(context).textTheme.headlineMedium,
-            )
+            Slider(
+                max: 1,
+                min: 0,
+                value: value,
+                onChanged: (val) {
+                  value = val;
+                  setState(() {});
+                }),
+
+            Row(
+              children: [
+                GestureDetector(
+                  child: Expanded(
+                      child: Container(
+                    height: 200,
+                    color: Colors.amber.shade400.withOpacity(value),
+                  )),
+                ),
+                Expanded(
+                    child: Container(
+                  height: 200,
+                  color: Colors.blueGrey.withOpacity(value),
+                )),
+              ],
+            ),
+
+            // Text(now.toString()),
+            // Text(
+            //   count.toString(),
+            //   style: Theme.of(context).textTheme.headlineMedium,
+            // )
           ],
         ),
       ),
