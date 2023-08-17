@@ -12,7 +12,7 @@ class Provider extends StatefulWidget {
 class _ProviderState extends State<Provider> {
   int count = 0;
   double value = 0;
-   double value1 = 0;
+  double value1 = 0;
   final now = DateTime.now();
   @override
   void initState() {
@@ -20,13 +20,15 @@ class _ProviderState extends State<Provider> {
     super.initState();
     Timer.periodic(Duration(seconds: 1), (timer) {
       count++;
-      print(count);
+      //print(count);
       setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print('hello');
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -44,13 +46,11 @@ class _ProviderState extends State<Provider> {
 
             Row(
               children: [
-                GestureDetector(
-                  child: Expanded(
-                      child: Container(
-                    height: 200,
-                    color: Colors.amber.shade400.withOpacity(value),
-                  )),
-                ),
+                Expanded(
+                    child: Container(
+                  height: 200,
+                  color: Colors.amber.shade400.withOpacity(value),
+                )),
                 Expanded(
                     child: Container(
                   height: 200,
