@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class Slider extends StatefulWidget {
-  const Slider({super.key, required String title});
+  const Slider({super.key, });
 
   @override
   State<Slider> createState() => _SliderState();
@@ -13,7 +13,6 @@ class _SliderState extends State<Slider> {
   int count = 0;
 
   double value = 0;
-  double value1 = 0;
   final now = DateTime.now();
   @override
   void initState() {

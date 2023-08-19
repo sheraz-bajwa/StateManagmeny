@@ -1,18 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:statemangment/multiprovider.dart';
 
-class Provider extends StatefulWidget {
-  const Provider({super.key, required String title});
+class Provider1 extends StatefulWidget {
+  const Provider1({
+    super.key,
+  });
 
   @override
-  State<Provider> createState() => _ProviderState();
+  State<Provider1> createState() => _Provider1State();
 }
 
-class _ProviderState extends State<Provider> {
+class _Provider1State extends State<Provider1> {
   int count = 0;
-  double value = 0;
-  double value1 = 0;
   final now = DateTime.now();
   @override
   void initState() {
@@ -27,9 +29,11 @@ class _ProviderState extends State<Provider> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<Multipro>(context, listen: false);
     print('hello');
 
     return Scaffold(
+      appBar: AppBar(title: Text('Flutter Demo Home Page')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,10 +42,10 @@ class _ProviderState extends State<Provider> {
             Slider(
                 max: 1,
                 min: 0,
-                value: value,
+                value: provider.value,
                 onChanged: (val) {
-                  value = val;
-                  setState(() {});
+                  provider.setvalue(val);
+                  //value = val;
                 }),
 
             Row(
@@ -49,12 +53,12 @@ class _ProviderState extends State<Provider> {
                 Expanded(
                     child: Container(
                   height: 200,
-                  color: Colors.amber.shade400.withOpacity(value),
+                  color: Colors.amber.shade400.withOpacity(provider.value),
                 )),
                 Expanded(
                     child: Container(
                   height: 200,
-                  color: Colors.blueGrey.withOpacity(value),
+                  color: Colors.blueGrey.withOpacity(provider.value),
                 )),
               ],
             ),
