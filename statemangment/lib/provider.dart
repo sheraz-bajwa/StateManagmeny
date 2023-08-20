@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:statemangment/multiprovider.dart';
+import 'package:statemangment/Provider/SliderProvider.dart';
 
 class Provider1 extends StatefulWidget {
   const Provider1({

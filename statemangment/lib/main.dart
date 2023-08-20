@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:statemangment/Favorate/Favdata.dart';
-import 'package:statemangment/Favorate/favorateItemProvider.dart';
-import 'package:statemangment/multiprovider.dart';
+import 'package:statemangment/Light&DartMode.dart/DartTheme.dart';
+import 'package:statemangment/Provider/favorateItemProvider.dart';
+import 'package:statemangment/Provider/SliderProvider.dart';
+import 'package:statemangment/Provider/themeProvider.dart';
 import 'package:statemangment/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -19,13 +21,14 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => Multipro()),
         ChangeNotifierProvider(create: (_) => FavItemProvider()),
+        ChangeNotifierProvider(create: (_) => themeChanger()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Fav(),
+        home: DarKTheme(),
       ),
     );
   }

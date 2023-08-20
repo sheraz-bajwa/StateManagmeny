@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:statemangment/Favorate/favorateItemProvider.dart';
+import 'package:statemangment/Provider/favorateItemProvider.dart';
 
 class SelectedItem extends StatefulWidget {
   const SelectedItem({super.key});
