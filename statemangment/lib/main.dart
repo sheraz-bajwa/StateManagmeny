@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:statemangment/Favorate/Favdata.dart';
+import 'package:statemangment/Favorate/favorateItemProvider.dart';
 import 'package:statemangment/multiprovider.dart';
 import 'package:statemangment/provider.dart';
 import 'package:provider/provider.dart';
@@ -16,13 +18,14 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Multipro()),
+        ChangeNotifierProvider(create: (_) => FavItemProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Provider1(),
+        home: Fav(),
       ),
     );
   }
