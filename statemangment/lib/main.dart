@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:statemangment/Favorate/Favdata.dart';
 import 'package:statemangment/Light&DartMode.dart/DartTheme.dart';
+import 'package:statemangment/LoginWithProvider/LoginScreen.dart';
 import 'package:statemangment/Provider/favorateItemProvider.dart';
 import 'package:statemangment/Provider/SliderProvider.dart';
 import 'package:statemangment/Provider/themeProvider.dart';
@@ -21,14 +22,19 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => Multipro()),
         ChangeNotifierProvider(create: (_) => FavItemProvider()),
-        ChangeNotifierProvider(create: (_) => themeChanger()),
+        ChangeNotifierProvider(create: (_) => ThemeChanger()),
       ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: DarKTheme(),
+      child: Builder(
+        builder: (BuildContext context) {
+          final themeChanger = Provider.of<ThemeChanger>(context);
+
+          return MaterialApp(
+            darkTheme: ThemeData(brightness: Brightness.dark),
+            title: 'Flutter Demo',
+            themeMode: themeChanger.themeMode,
+            home: LoginPage(),
+          );
+        },
       ),
     );
   }
